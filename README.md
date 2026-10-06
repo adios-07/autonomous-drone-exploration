@@ -34,7 +34,7 @@ GPS, and no knowledge of the layout.
 
 ## The vehicle
 
-An X500 quadrotor carrying a 360° 2D LiDAR — the only sensor the navigation stack depends on.
+An X500 quadrotor carrying a 360° 2D LiDAR, the only sensor the navigation stack depends on.
 
 ![The drone in a corridor](media/drone_in_corridor.png)
 
