@@ -30,6 +30,8 @@ GPS, and no knowledge of the layout.
 
 ![The maze in perspective, with the drone at its starting cell](media/maze_overview.png)
 
+---
+
 ## The vehicle
 
 An X500 quadrotor carrying a 360° 2D LiDAR — the only sensor the navigation stack depends on.
@@ -37,30 +39,6 @@ An X500 quadrotor carrying a 360° 2D LiDAR — the only sensor the navigation s
 ![The drone in a corridor](media/drone_in_corridor.png)
 
 ![The drone close up, LiDAR puck on top](media/drone_closeup.png)
-
----
-
-## How it works
-
-The drone has no prior map and no GPS. It works out where it is by comparing consecutive LiDAR
-scans, and hands that estimate to the flight controller as its position source. In parallel, a
-SLAM backend turns the same scans into a map that keeps improving as more of the space is seen.
-
-Exploration is then a loop:
-
-- **Find the edges of what is known.** The boundaries between mapped free space and unmapped
-  space are the places worth visiting.
-- **Pick one and commit to it.** A single sweep over the map gives the real travel cost to every
-  candidate, and the drone stays with its choice instead of changing its mind every second.
-- **Plan a route there** over a map that has been thickened by the drone's own width, so a path
-  that looks clear really is flyable.
-- **Fly it, and adjust locally.** A short-range layer steers around anything that was not on the
-  map when the route was planned, then rejoins the original path.
-- **Stop when there is nothing left.** When no reachable unexplored space remains, the drone
-  announces that exploration is complete and holds position.
-
-Each stage is a small, separate node, so any one of them can be run, inspected or replaced on its
-own.
 
 ---
 
@@ -139,9 +117,6 @@ navigation framework.
 **Working in simulation:** GPS-denied flight, live 2D mapping, autonomous frontier exploration,
 route planning and path following, local obstacle avoidance, return-to-home, and automatic
 detection of when exploration is finished.
-
-**Not built yet:** survivor detection, the ground-station link, and hardware bring-up on the
-Raspberry Pi 5 and Cube Orange. The simulator is the proving ground; flight hardware is next.
 
 ---
 
