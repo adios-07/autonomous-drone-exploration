@@ -7,9 +7,8 @@ Built on ROS 2 and PX4. Everything below runs today in simulation; the target pl
 Raspberry Pi 5 paired with a Cube Orange flight controller.
 
 > **About this repository.** This is a showcase of work in progress. The project is an entry in an
-> ongoing competition, so the source code is kept private until the competition concludes — what
-> is published here is the demo footage, the design, and the current status. Happy to walk through
-> the implementation in person or on a call.
+> ongoing competition, so the source code is kept private until the competition concludes; what
+> is published here is the demo footage, the design, and the current status.
 
 ---
 
